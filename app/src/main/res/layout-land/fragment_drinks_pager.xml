@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:showDividers="middle"
+    android:divider="@drawable/abc_list_divider_holo_dark">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.3"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/textViewHistory"
+            android:textSize="20sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Status"
+            android:id="@+id/textViewStatus"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textSize="30sp"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="£00.00"
+            android:id="@+id/textViewSaldo"
+            android:layout_gravity="top|right"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textStyle="bold"
+            android:gravity="right"
+            android:textSize="60sp"
+            android:textIsSelectable="false"
+            android:singleLine="true"
+            android:ellipsize="none" />
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id ="@+id/pager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:context="com.pemGP.puboardsteward.DrinksPagerFragment"
+        android:layout_weight="0.7">
+
+        <android.support.v4.view.PagerTabStrip
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"/>
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

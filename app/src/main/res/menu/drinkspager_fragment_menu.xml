@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".NavDrawActivity" >
+    <item android:id="@+id/options_refresh_drinks"
+        android:title="@string/options_refresh_data"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/ic_action_refresh"/>
+    <item android:id="@+id/options_edit_drinksheet"
+        android:title="@string/options_edit_drinksheet"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_edit"/>
+    <item android:id="@+id/options_undo_last_transaction"
+        android:title="@string/options_undo_last_transaction"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_undo" />
+</menu>

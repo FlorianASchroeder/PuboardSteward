@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/gridViewDrinks"
+    android:columnWidth="140dp"
+    android:numColumns="auto_fit"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
+    android:gravity="center"
+    android:stretchMode="columnWidth"
+    tools:listitem="@android:layout/simple_list_item_2" />

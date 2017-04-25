@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+    }
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId "com.pemGP.puboardsteward"
+        minSdkVersion 17
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        incremental false
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://dl.bintray.com/populov/maven' }
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    //    compile 'com.google.apis:google-api-services-drive:v2-rev137-1.19.0'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    //    compile 'com.google.api-client:google-api-client:1.18.0-rc'
+    //compile files('libs/library-2.4.1.jar')
+    //compile(name:'library-2.4.1', ext:'aar')
+    compile 'com.android.support:appcompat-v7:19.+'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:19.+'
+    compile 'com.android.support:support-v13:19.+'
+    compile 'com.google.android.gms:play-services:+'
+}

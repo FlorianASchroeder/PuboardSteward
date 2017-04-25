@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/options_register"
+        android:title="@string/options_register"
+        app:showAsAction="withText|never"/>
+    <item android:id="@+id/options_unregister"
+        android:title="@string/options_unregister"
+        app:showAsAction="withText|never"/>
+</menu>

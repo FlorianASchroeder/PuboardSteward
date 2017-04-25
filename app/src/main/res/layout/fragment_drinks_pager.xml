@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id ="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="350dp"
+            tools:context="com.pemGP.puboardsteward.DrinksPagerFragment"
+            android:layout_weight="0.6">
+
+
+            <android.support.v4.view.PagerTabStrip
+                android:id="@+id/titles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"/>
+
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Status"
+            android:id="@+id/textViewStatus"
+            android:layout_weight="0"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:textSize="30sp"
+            android:maxLines="1" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:measureWithLargestChild="false"
+            android:id="@+id/linearLayout"
+            android:showDividers="beginning"
+            android:layout_weight="0.4">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/textViewHistory"
+                android:scrollbars="vertical"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="£00.00"
+                android:id="@+id/textViewSaldo"
+                android:layout_gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textStyle="bold"
+                android:textSize="60sp"
+                android:singleLine="true"
+                android:ellipsize="none"
+                android:gravity="right" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

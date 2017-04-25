@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PuboardSteward</string>
+    <string name="title_section1">Steward</string>
+    <string name="title_section2">Accounts</string>
+    <string name="title_section3">Settings</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="account_setup_nameHint">Name, Surname</string>
+    <string name="account_setup_topupHint">Top-Up amount in £</string>
+    <string name="account_setup_title">Enter Account Details</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="options_refresh_data">Refresh</string>
+    <string name="options_edit_drinksheet">Edit</string>
+    <string name="options_undo_last_transaction">Undo</string>
+    <string name="dialog_confirm_undo_title">Undo last transaction</string>
+    <string name="dialog_confirm_undo_message">Do you really want to undo the last transaction?</string>
+    <string name="gcm_project_id">390546722706-m1nmg0i2uolnr84mu479sqj28b5quaj9</string>
+
+    <string name="transaction_purchase">purchase</string>
+    <string name="transaction_topup">top-up</string>
+    <!-- following has to agree with spreadsheet columns and script -->
+    <string name="transaction_id">id</string>
+    <string name="transaction_name">name</string>
+    <string name="transaction_action">action</string>
+    <string name="transaction_amount">amount</string>
+    <string name="transaction_regid">regId</string>
+    <string name="transaction_total">total</string>
+    <string name="transaction_items">items</string>
+    <string name="transaction_tid">tid</string>
+    <string name="transaction_type">type</string>
+    <string name="transaction_type_undolasttransaction">undoLastTransaction</string>
+    <string name="transaction_type_addtransaction">addTransaction</string>
+    <!-- Text for status line -->
+    <string name="pagerstatus_topup">Top-up successful:</string>
+    <string name="pagerstatus_paid">Successfully paid!</string>
+    <string name="pagerstatus_no_money">Not enough money!</string>
+    <string name="pagerstatus_payment_pending">%1$s will pay:</string>
+    <string name="pagerstatus_topup_pending">Topping-up:</string>
+    <string name="pagerstatus_error_repeat">Connection error</string>
+    <string name="pagerstatus_undo_complete">Last transaction undone!</string>
+    <string name="pagerstatus_undo_error">Undo not successful!</string>
+
+    <!-- from Tutorial -->
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="options_register">Register</string>
+    <string name="options_unregister">Unregister</string>
+    <string name="options_clear">Clear</string>
+    <string name="options_exit">Exit</string>
+    <string name="title_activity_inventory">Inventory</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- For Settings Fragment -->
+    <string name="preferences_server">Server Preferences (DO NOT CHANGE!)</string>
+    <string name="preference_scriptid_title">Drive Script ID</string>
+    <string name="preference_scriptid_summary">ID of the Drive Spreadsheet script. Can be found in "Publish -> Deploy as web app..."</string>
+    <string name="preference_scriptid_title_dialog">Enter Drive Script ID</string>
+
+    <string name="preference_senderid_title">Script Project Number</string>
+    <string name="preference_senderid_summary">Project number from Google Developers Console</string>
+    <string name="preference_senderid_title_dialog">Enter Project Number</string>
+
+    <string name="preference_spreadsheetid_title">Spreadsheet ID</string>
+    <string name="preference_spreadsheetid_summary">ID of the PuboardSteward Google Spreadsheet</string>
+    <string name="preference_spreadsheetid_title_dialog">Enter Spreadsheet ID</string>
+</resources>
