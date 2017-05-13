@@ -10,7 +10,7 @@
             android:title="@string/preference_scriptid_title"
             android:summary="@string/preference_scriptid_summary"
             android:dialogTitle="@string/preference_scriptid_title_dialog"
-            android:defaultValue="AKfycbyjK_64mlM8FNCigJxELfXTxBMTP8vF3x1NZtAMHywDD1XanIE"/>
+            android:defaultValue="AKfycbyLOc6hXGXwk3LOknQ8buV27X2jyg2WBiMaJuZ1anImycmFO0Zc"/>
 
         <EditTextPreference
             android:key="puboardsteward_sender_id"
@@ -18,13 +18,13 @@
             android:summary="@string/preference_senderid_summary"
             android:dialogTitle="@string/preference_senderid_title_dialog"
             android:inputType="number"
-            android:defaultValue="296464857836" />
+            android:defaultValue="390546722706" />
         <EditTextPreference
             android:key="puboardsteward_spreadsheet_id"
             android:title="@string/preference_spreadsheetid_title"
             android:summary="@string/preference_spreadsheetid_summary"
             android:dialogTitle="@string/preference_spreadsheetid_title_dialog"
-            android:defaultValue="1oDk4feeuAxGG4myHOxrhI7YVCJZPiqG0zNSqWYQNrZA" />
+            android:defaultValue="1sW2OQ2NMj1ILU0EWbd9YCxVT49vg_pTEuqC-eXSYVkU" />
 
     </PreferenceCategory>
 
