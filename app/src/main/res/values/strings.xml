@@ -34,6 +34,7 @@
     <string name="transaction_type_undolasttransaction">undoLastTransaction</string>
     <string name="transaction_type_addtransaction">addTransaction</string>
     <!-- Text for status line -->
+    <string name="pagerstatus_none">Welcome!</string>
     <string name="pagerstatus_topup">Top-up successful:</string>
     <string name="pagerstatus_paid">Successfully paid!</string>
     <string name="pagerstatus_no_money">Not enough money!</string>
@@ -42,6 +43,7 @@
     <string name="pagerstatus_error_repeat">Connection error</string>
     <string name="pagerstatus_undo_complete">Last transaction undone!</string>
     <string name="pagerstatus_undo_error">Undo not successful!</string>
+    <string name="pageramount_zero_val">£00.00</string>
 
     <!-- from Tutorial -->
     <string name="error_config">Please set the %1$s constant and recompile the app.</string>
