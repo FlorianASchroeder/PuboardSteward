@@ -7,12 +7,8 @@ package com.pemGP.puboardsteward;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
-import java.util.logging.Logger;
 
 /**
  * Helper class providing methods and constants common to other classes in the

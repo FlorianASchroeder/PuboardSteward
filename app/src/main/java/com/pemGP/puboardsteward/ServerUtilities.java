@@ -65,9 +65,7 @@ class ServerUtilities {
 
     private static Boolean isRegistered = null;
     private static String regid = null;
-    private static DefaultHttpClient hc;
 
-//    private static GoogleCloudMessaging gcm = null;
     Context context;
     private static List<Map<String, String>> pendingTransactions = null;
     /**
