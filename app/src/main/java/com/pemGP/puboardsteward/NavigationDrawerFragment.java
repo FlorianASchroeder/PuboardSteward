@@ -3,6 +3,7 @@ package com.pemGP.puboardsteward;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -97,6 +98,7 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
+        mDrawerListView.setBackgroundColor(Color.DKGRAY);
         mDrawerListView.setAdapter(new ArrayAdapter<String>(
                 getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_1,
