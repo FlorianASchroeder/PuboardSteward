@@ -13,7 +13,6 @@ import com.google.android.gms.auth.UserRecoverableNotifiedException;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -55,7 +54,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 /**
  * Helper class used to communicate with the demo server.
  */
-public class ServerUtilities {
+class ServerUtilities {
 
     private static final int MAX_ATTEMPTS = 2;
     private static final int BACKOFF_MILLI_SECONDS = 2000;
@@ -68,7 +67,7 @@ public class ServerUtilities {
     private static String regid = null;
     private static DefaultHttpClient hc;
 
-    static GoogleCloudMessaging gcm = null;
+//    private static GoogleCloudMessaging gcm = null;
     Context context;
     private static List<Map<String, String>> pendingTransactions = null;
     /**
@@ -77,7 +76,7 @@ public class ServerUtilities {
      * @return whether the registration succeeded or not.
      */
 
-    public ServerUtilities(Context ctx){
+    ServerUtilities(Context ctx){
         context = ctx;
     }
 
@@ -143,7 +142,7 @@ public class ServerUtilities {
         if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
             String result = EntityUtils.toString(response.getEntity());
             //Log.i(TAG,result);
-            JSONArray objects = null;
+            JSONArray objects;
             try {
                 objects = new JSONArray(result);
             } catch (JSONException e) {
@@ -158,7 +157,7 @@ public class ServerUtilities {
         return null;
     }
 
-    static String getAccessToken(Context activity){
+    private static String getAccessToken(Context activity){
         String token = null;
         try {
             token =
@@ -270,7 +269,7 @@ public class ServerUtilities {
         }
     }
 
-    public static String getStoredRegId(Context context){
+    static String getStoredRegId(Context context){
         // Try to load from shared preferences
         if (regid != null)
             return regid;
@@ -280,7 +279,7 @@ public class ServerUtilities {
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-    public static void storeRegistrationId(Context context, String regid){
+    private static void storeRegistrationId(Context context, String regid){
         // sets current state to sharedPreferences
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
         editor.putString(KEY_REGID, regid);
@@ -289,10 +288,9 @@ public class ServerUtilities {
         } else {
             editor.commit();
         }
-        return;
     }
 
-    public static boolean isRegisteredOnServer(Context ctx) {
+    private static boolean isRegisteredOnServer(Context ctx) {
         // loads info from sharedPreferences
         if (isRegistered!= null) {
             return isRegistered;
@@ -302,7 +300,7 @@ public class ServerUtilities {
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-    public static void setRegisteredOnServer(Context ctx, boolean state) {
+    private static void setRegisteredOnServer(Context ctx, boolean state) {
         // sets current state to sharedPreferences
         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(ctx).edit();
         editor.putBoolean(KEY_SERVER_REGISTRATION, state);
@@ -337,7 +335,7 @@ public class ServerUtilities {
             String msg = "";
             try {
                 if (regid == null) {
-                    gcm = GoogleCloudMessaging.getInstance(context);
+                    GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(context);
                     regid = gcm.register(SENDER_ID);
                     msg = "Device registered for SenderID=" +SENDER_ID+", registration ID=" + regid;
 
@@ -357,7 +355,7 @@ public class ServerUtilities {
                 // will send upstream messages to a server that echo back the
                 // message using the 'from' address in the message.
 
-                if (mode[0] == false) {
+                if (!mode[0]) {
                     // erase regid to allow new registration!
                     regid = null;
                     storeRegistrationId(context, regid);
@@ -377,12 +375,11 @@ public class ServerUtilities {
         @Override
         protected void onPostExecute(String msg) {
             Log.i(TAG+".RegisterInBackground","Finished with: "+msg);
-            return;
         }
 
     }
 
-    static boolean sendRegistrationIdToBackend(Context context, boolean register) {
+    private static boolean sendRegistrationIdToBackend(Context context, boolean register) {
         // register on server if register == true
         // else: unregister
         if (register)
@@ -534,12 +531,13 @@ public class ServerUtilities {
             @Override
             protected void onPostExecute(Boolean aBoolean) {
                 super.onPostExecute(aBoolean);
-                if (aBoolean) {
-                    // unnecessary since slower than response!
-                    //listener.displayConfirmTransaction(DrinksPagerFragment.TransactionState.UNDO_COMPLETE,0,null);
-                } else {
+                if (!aBoolean) {
                     listener.displayConfirmTransaction(DrinksPagerFragment.TransactionState.UNDO_ERROR,0,null);
                 }
+//                else {
+//                    // unnecessary since slower than response!
+//                    listener.displayConfirmTransaction(DrinksPagerFragment.TransactionState.UNDO_COMPLETE,0,null);
+//                }
             }
         }.execute();
     }

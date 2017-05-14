@@ -9,13 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
@@ -24,7 +22,7 @@ import java.util.TreeMap;
 /**
  * Created by Florian on 01.08.2014.
  */
-public class DrinkStore {
+class DrinkStore {
     private TreeMap<Integer, Drink> mDrinks;
 
     // not final, will be read out from spreadsheet:
@@ -36,10 +34,10 @@ public class DrinkStore {
     private ArrayList<OnDrinkStoreUpdatedListener>  mListeners;
 
 
-    public static final String TAG = "PuboardSteward.DrinksStore";
+    private static final String TAG = "PuboardSteward.DrinksStore";
 
-    protected static final String FILE_DRINKS="drinks.dat";
-    protected static final String FILE_CATEGORIES="categories.dat";
+    private static final String FILE_DRINKS="drinks.dat";
+    private static final String FILE_CATEGORIES="categories.dat";
 
     private static final int CATEGORY_BEER = 1000;
     private static final int CATEGORY_ALE = 4000;
@@ -52,7 +50,7 @@ public class DrinkStore {
     private DrinkStore(Context appContext) {
         mAppContext = appContext.getApplicationContext();
         mListener = (OnDrinkStoreUpdatedListener) appContext;       // the main activity, but can be cancelled
-        mListeners = new ArrayList<OnDrinkStoreUpdatedListener>();
+        mListeners = new ArrayList<>();
 
         // first load old entries:
         read(mAppContext, FILE_CATEGORIES);
@@ -71,33 +69,33 @@ public class DrinkStore {
         return sDrinkStore;
     }
 
-    public TreeMap<Integer, Drink> getDrinks() {
+    TreeMap<Integer, Drink> getDrinks() {
         if (mDrinks != null)
             return mDrinks;
         else
-            return new TreeMap<Integer, Drink>();
+            return new TreeMap<>();
     }
 
     public Drink getDrink(int id){
         return mDrinks.get(id);
     }
 
-    public String[] getCategoryTitles() {
+    String[] getCategoryTitles() {
         return CATEGORY_TITLES;
     }
 
-    protected void makeToast(String s){
+    private void makeToast(String s){
         Toast.makeText(mAppContext, s, Toast.LENGTH_LONG).show();
     }
 
-    public static void save(Context c, String fileName,Object mObj) throws IOException {
+    private static void save(Context c, String fileName,Object mObj) throws IOException {
         FileOutputStream fout = c.openFileOutput(fileName, Context.MODE_PRIVATE);
         ObjectOutputStream oos = new ObjectOutputStream(fout);
         oos.writeObject(mObj);
         fout.close();
     }
 
-    public void read(final Context c, final String fileName) {
+    private void read(final Context c, final String fileName) {
 
         new AsyncTask<Void, Void, Object>(){
 
@@ -173,12 +171,12 @@ public class DrinkStore {
     }
 
     private class DrinksSpreadsheetImportTask extends AsyncTask<Void,Void,TreeMap<Integer, Drink>> {
-        LinkedHashMap<String,Integer> categoryLastID= new LinkedHashMap<String, Integer>();
+        LinkedHashMap<String,Integer> categoryLastID= new LinkedHashMap<>();
 
         @Override
         protected TreeMap<Integer, Drink> doInBackground(Void... voids) {
             updating = true;
-            TreeMap<Integer, Drink> tempDrinks = new TreeMap<Integer, Drink>();
+            TreeMap<Integer, Drink> tempDrinks = new TreeMap<>();
             try {
                 JSONArray objects = ServerUtilities.getFromSpreadsheet((NavDrawActivity) mListener,"drinks");
 
@@ -190,7 +188,7 @@ public class DrinkStore {
                     return null;
                 }
 
-                int ID = 0;
+
                 //mDrinks.clear();        // empty all drinks first
                 for (int i = 1; i < objects.length(); i++) {
                     JSONObject session = objects.getJSONObject(i);
@@ -202,7 +200,8 @@ public class DrinkStore {
                         categoryLastID.put(tempCategory,(categoryLastID.size()+1)*1000);
                     }
                     // get last ID of category, increment and push back to map
-                    categoryLastID.put(tempCategory, ID = categoryLastID.get(tempCategory)+1);
+                    int ID = categoryLastID.get(tempCategory)+1;
+                    categoryLastID.put(tempCategory, ID );
 
                     Drink item = new Drink(session.getString("name"),session.getDouble("price"),ID);
                     tempDrinks.put(item.getId(),item);
@@ -245,26 +244,26 @@ public class DrinkStore {
         }
     }
 
-    public void refreshDrinks(Context context){
+    void refreshDrinks(Context context){
         mListener = (OnDrinkStoreUpdatedListener) context;
         // Only start new instance if not already updating
         if (!updating)
             new DrinksSpreadsheetImportTask().execute();
     }
-    public interface OnDrinkStoreUpdatedListener {
+    interface OnDrinkStoreUpdatedListener {
         // TODO: Update argument type and name
-        public void onDrinkStoreUpdated();
+        void onDrinkStoreUpdated();
     }
 
-    public void addOnDrinkStoreUpdatedListener (OnDrinkStoreUpdatedListener mListener) {
+    void addOnDrinkStoreUpdatedListener (OnDrinkStoreUpdatedListener mListener) {
         mListeners.add(mListener);
     }
 
-    public void removeOnDrinkStoreUpdatedListener (OnDrinkStoreUpdatedListener mListener) {
+    void removeOnDrinkStoreUpdatedListener (OnDrinkStoreUpdatedListener mListener) {
         mListeners.remove(mListener);
     }
 
-    public void notifyOnDrinkStoreUpdatedListener (){
+    private void notifyOnDrinkStoreUpdatedListener (){
         for (int i = 0; i < mListeners.size(); i++) {
             try {
                 mListeners.get(i).onDrinkStoreUpdated();
@@ -274,8 +273,8 @@ public class DrinkStore {
         }
     }
 
-    public interface OnAuthenticationErrorListener {
-        public void onAuthenticationError();
+    interface OnAuthenticationErrorListener {
+        void onAuthenticationError();
     }
 
 }
