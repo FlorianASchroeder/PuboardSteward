@@ -3,3 +3,5 @@
 /.idea/workspace.xml
 .DS_Store
 /build
+keystore.properties
+google-services.json
