@@ -5,10 +5,10 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/gridViewDrinks"
-    android:columnWidth="140dp"
+    android:columnWidth="100dp"
     android:numColumns="auto_fit"
-    android:verticalSpacing="10dp"
-    android:horizontalSpacing="10dp"
+    android:verticalSpacing="5dp"
+    android:horizontalSpacing="5dp"
     android:gravity="center"
     android:stretchMode="columnWidth"
     tools:listitem="@android:layout/simple_list_item_2" />
