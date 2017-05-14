@@ -57,7 +57,7 @@ public class DrinksPagerFragment extends Fragment implements DrinksFragment.OnDr
     private String mStatus;
     private ArrayList<Drink> mPendingTransactions;
 
-    public enum TransactionState {
+    enum TransactionState {
         TOPUP_COMPLETE, TOPUP_PENDING, PURCHASE_COMPLETE, PURCHASE_PENDING, NO_MONEY, ERROR,
         UNDO_COMPLETE, UNDO_ERROR
     }

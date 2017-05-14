@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * Helper class providing methods and constants common to other classes in the
  * app.
  */
-public final class CommonUtilities {
+final class CommonUtilities {
 
     /**
      * Feed URL for the Drinks list and account list

@@ -8,13 +8,13 @@ import android.support.v13.app.FragmentPagerAdapter;
 /**
  * Created by Florian on 04.08.2014.
  */
-public class DrinksFragmentPagerAdapter extends FragmentPagerAdapter {
+class DrinksFragmentPagerAdapter extends FragmentPagerAdapter {
     private static int NUM_ITEMS;
     private static String[] TITLE_CATEGORY;
 
     Context context;
 
-    public DrinksFragmentPagerAdapter(Context context, FragmentManager fragmentManager) {
+    DrinksFragmentPagerAdapter(Context context, FragmentManager fragmentManager) {
         super(fragmentManager);
         this.context = context;
         TITLE_CATEGORY = DrinkStore.get(context).getCategoryTitles();
@@ -45,11 +45,7 @@ public class DrinksFragmentPagerAdapter extends FragmentPagerAdapter {
         return TITLE_CATEGORY[position];
     }
 
-    public static String makeFragmentName(int viewPagerId, int index) {
-        return "android:switcher:" + viewPagerId + ":" + index;
-    }
-
-    public void refreshCategories(Context context) {
+    void refreshCategories(Context context) {
         TITLE_CATEGORY= DrinkStore.get(context).getCategoryTitles();
         NUM_ITEMS = TITLE_CATEGORY.length;
     }
