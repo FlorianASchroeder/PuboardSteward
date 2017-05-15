@@ -65,6 +65,7 @@ class ServerUtilities {
 
     private static Boolean isRegistered = null;
     private static String regid = null;
+    private static DefaultHttpClient hc;
 
     Context context;
     private static List<Map<String, String>> pendingTransactions = null;
@@ -117,10 +118,10 @@ class ServerUtilities {
     }
 
     private static DefaultHttpClient getDefaultHttpClient(){
-        if (hc == null)
-            return new DefaultHttpClient();
-        else
-            return hc;
+        if (hc == null) {
+            hc = new DefaultHttpClient();
+        }
+        return hc;
     }
 
     static JSONArray getFromSpreadsheet(Context activity, String sheetType) throws IOException, SSLPeerUnverifiedException {
